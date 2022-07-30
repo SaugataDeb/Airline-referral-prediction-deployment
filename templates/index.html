@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Airline passenger referral prediction</title>
+    
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+      
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="profile">
+                    <img src="https://media-exp1.licdn.com/dms/image/C5603AQG1o9qtkZqQ9w/profile-displayphoto-shrink_100_100/0/1657772826245?e=1664409600&v=beta&t=x7y70bQTGgWmp-x-xfA9IZ7pnBWT0bkp8_35GELHgZs" alt="profile_picture">
+                    <h3>Saugata Deb</h3>
+                    <div>
+                    <ul>
+                        <li>
+                            <a href="https://www.linkedin.com/in/saugata-deb" class="active">
+                                <span class="icon"><i class="fas fa-home"></i></span>
+                                <span class="item">About Creator</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/SaugataDeb" class="active">
+                                <span class="icon"><i class="fas fa-home"></i></span>
+                                <span class="item">Workplace</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    </div>
+                    
+                    
+                </div>
+                
+
+            </div>
+            
+            
+        <!-- body content -->
+ </div>
+ <div class="login">
+	<h1>Airline Passenger Referral Prediction</h1>
+
+    <form action="{{ url_for('predict')}}"method="POST">
+    <div class="w3-left w3-padding-16"><h3>Submit your Airline experience :</h3></div>
+    
+    
+       <input type="text" name="Customer_review" placeholder="reviews" required="required" />
+
+        
+
+        <button type="submit" class="btn btn-primary btn-block btn-large" value="predict" >predict</button>
+    </form>
+
+   <br>
+   <br>
+   <div class="w3-left w3-padding-16"><h3>Your review is here :</h3></div>
+        	
+   {% if prediction == 1%}
+   <h4 style="color:rgb(1, 2, 2);">Positive  Review: (Thank you for this beatifull feedback, we are always here to help you!!) </h2>
+   {% elif prediction == 0%}
+   <h4 style="color:rgb(255, 8, 8);">Negative Review: (Sorry for the trouble you experienced!!)</h2>
+   {% endif %}
+ </div>
+
+
+</body>
+</html>
